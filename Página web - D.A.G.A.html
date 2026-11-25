@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Alessandro Garcia</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(
+                180deg,
+                #dce5f2 0%,
+                #c4d3e8 20%,
+                #a8bddb 42%,
+                #8ca4c9 65%,
+                #738cb5 85%,
+                #5b749e 100%
+            );
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #cbd5e1;
+            padding: 12px 32px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-barra {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .logo-placeholder {
+            height: 38px;
+            min-width: 120px;
+            padding: 0 12px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #64748b;
+            background-color: #f8fafc;
+        }
+
+        .logo-barra img {
+            height: 40px;
+            width: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        nav a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        nav a:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+        }
+
+        main {
+            padding-top: 74px;
+        }
+
+        section {
+            padding: 60px 24px;
+            max-width: 1180px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            color: #1e293b;
+            font-size: 1.05rem;
+            margin-top: 0;
+        }
+
+        .tarjeta-azul {
+            background: linear-gradient(145deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 22px 24px;
+            border: 1px solid rgba(147, 197, 253, 0.35);
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+        }
+
+        .tarjeta-azul h3 {
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            font-size: 1.18rem;
+        }
+
+        .tarjeta-azul p {
+            margin: 0;
+            color: #dbeafe;
+            font-size: 0.96rem;
+        }
+
+        .contenedor-inicio {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .columna-imagen {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .marco-imagen {
+            width: 100%;
+            max-width: 420px;
+            min-height: 290px;
+            background-color: #ffffff;
+            border: 2px dashed #93c5fd;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            overflow: hidden;
+        }
+
+        .marco-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .columna-texto {
+            flex: 1.2;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contenedor-recuadro-unico {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        .recuadro-link {
+            display: block;
+            width: 270px;
+            text-decoration: none;
+            text-align: center;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .recuadro-link:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 14px rgba(59, 130, 246, 0.45);
+        }
+
+        #tecnologia {
+            text-align: center;
+        }
+
+        .caja-texto-sec2 {
+            max-width: 880px;
+            padding: 34px 36px;
+            margin: 22px auto 0;
+            text-align: left;
+        }
+
+        .caja-texto-sec2 h3 {
+            font-size: 1.32rem;
+            margin-bottom: 12px;
+        }
+
+        .caja-texto-sec2 p {
+            font-size: 1.04rem;
+            line-height: 1.7;
+        }
+
+        .etiquetas-complemento {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .etiqueta-item {
+            background-color: #1d4ed8;
+            color: #ffffff;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-size: 0.94rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: default;
+            user-select: none;
+        }
+
+        .contenedor-sec3 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .titulo-izquierda-sec3 {
+            flex: 1;
+            min-width: 260px;
+            text-align: left;
+        }
+
+        .pila-derecha-sec3 {
+            flex: 1.3;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .tarjeta-sec3-con-imagen {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .texto-sec3 {
+            flex: 1;
+        }
+
+        .imagen-lateral-sec3 {
+            width: 84px;
+            height: 84px;
+            min-width: 84px;
+            border-radius: 10px;
+            border: 1.5px dashed rgba(191, 219, 254, 0.65);
+            background-color: rgba(15, 23, 42, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            color: #dbeafe;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .imagen-lateral-sec3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        #proyectos {
+            text-align: center;
+        }
+
+        .subtitulo-seccion {
+            max-width: 720px;
+            margin: 0 auto 28px;
+            color: #0f172a;
+            font-size: 1.08rem;
+        }
+
+        .cuadro-triple-entrada {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1e3a8a, #2563eb);
+            border-radius: 14px;
+            border: 1px solid rgba(147, 197, 253, 0.45);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.24);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .encabezado-tabla,
+        .fila-lista {
+            display: grid;
+            grid-template-columns: 1.3fr 1.2fr auto;
+            align-items: center;
+            gap: 24px;
+            padding: 16px 28px;
+        }
+
+        .encabezado-tabla {
+            background-color: rgba(15, 23, 42, 0.32);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            color: #93c5fd;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .encabezado-tabla span:last-child {
+            text-align: right;
+        }
+
+        .fila-lista {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f8fafc;
+        }
+
+        .fila-lista:last-child {
+            border-bottom: none;
+        }
+
+        .info-izquierda {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .info-central {
+            font-size: 0.95rem;
+            color: #dbeafe;
+        }
+
+        .link-derecha {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(191, 219, 254, 0.5);
+            white-space: nowrap;
+            justify-self: end;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .link-derecha:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+        }
+
+        #equipo {
+            text-align: center;
+        }
+
+        #equipo h2,
+        #contacto h2 {
+            color: #0f172a;
+        }
+
+        .grid-diez-cuadros {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 26px;
+        }
+
+        .cuadro-item {
+            background: linear-gradient(155deg, #1e3a8a, #2563eb);
+            border: 1px solid rgba(147, 197, 253, 0.35);
+            border-radius: 12px;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            min-height: 210px;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+        }
+
+        .cuadro-item h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.05rem;
+            color: #ffffff;
+        }
+
+        .circulo-letra {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.16);
+            border: 2px solid rgba(191, 219, 254, 0.75);
+            color: #ffffff;
+            font-size: 1.65rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4px auto 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cuadro-item a {
+            display: inline-block;
+            align-self: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(191, 219, 254, 0.45);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .cuadro-item a:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+
+        #contacto {
+            text-align: center;
+            padding-bottom: 65px;
+        }
+
+        .grid-contacto {
+            max-width: 740px;
+            margin: 24px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .fila-superior-contacto {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .fila-superior-contacto .recuadro-link {
+            width: auto;
+            text-align: left;
+        }
+
+        .bloque-inferior-contacto {
+            text-align: left;
+        }
+
+        .cabecera-subtitulo-icono {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .cabecera-subtitulo-icono h3 {
+            margin: 0;
+        }
+
+        .icono-subtitulo {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 6px;
+            border: 1px dashed rgba(191, 219, 254, 0.7);
+            background-color: rgba(15, 23, 42, 0.25);
+            color: #dbeafe;
+            font-size: 0.72rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .icono-subtitulo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(15, 23, 42, 0.22);
+            padding: 20px 24px;
+            text-align: center;
+            color: #f1f5f9;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Responsividad */
+        @media (max-width: 980px) {
+            .grid-diez-cuadros {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 780px) {
+            header {
+                padding: 12px 16px;
+            }
+            .encabezado-tabla,
+            .fila-lista {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .encabezado-tabla span:last-child {
+                text-align: left;
+            }
+            .link-derecha {
+                justify-self: start;
+            }
+            .fila-superior-contacto {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#inicio" class="logo-barra">
+            <div class="logo-placeholder"><img src="pece.png" alt="Logo"></div>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#tecnologia">Sobre mi</a>
+            <a href="#servicios">Formación</a>
+            <a href="#proyectos">Cursos</a>
+            <a href="#equipo">Compañeros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="contenedor-inicio">
+                <div class="columna-imagen">
+                    <div class="marco-imagen">
+                        <span>Aún</span>
+                    </div>
+                </div>
+
+                <div class="columna-texto">
+                    <h1>Diego Alessandro Garcia Aguilar</h1>
+                    <p>Estudiante de Ciencias de la Computación - Universidad Católica de San Pablo.</p>
+
+                    <div class="contenedor-recuadro-unico">
+                        <a href="https://ucsp.edu.pe/" target="_blank" rel="noopener noreferrer" class="tarjeta-azul recuadro-link">
+                            <h3>UCSP</h3>
+                            <p>Enlace al sitio principal.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia">
+            <h2>Sobre mi</h2>
+            <div class="tarjeta-azul caja-texto-sec2">
+                <h3>Hola, Bienvenidos</h3>
+                <p>Soy estudiante actualmente de la Universidad Catolica de San Pablo, en la carrera de Ciencias de la computación, me fascina y emociona la idea de aprender acerca de código, me gustan bastante las cosas que se pueden hacer con él y espero poder dominarlo correctamente.</p>
+            </div>
+
+            <div class="etiquetas-complemento">
+                <div class="etiqueta-item">Trabajo en equipo</div>
+                <div class="etiqueta-item">Disposición para aprender</div>
+                <div class="etiqueta-item">Tecnología y computación</div>
+                <div class="etiqueta-item">Python</div>
+            </div>
+        </section>
+
+        <section id="servicios">
+            <div class="contenedor-sec3">
+                <div class="titulo-izquierda-sec3">
+                    <h2>Formación Académica</h2>
+                    <p>Aquí parte de mi camino educativo</p>
+                </div>
+
+                <div class="pila-derecha-sec3">
+                    <div class="tarjeta-azul tarjeta-sec3-con-imagen">
+                        <div class="texto-sec3">
+                            <h3>Colegio CIMA – Tacna</h3>
+                            <p>Educación secundaria completa</p>
+                        </div>
+                        <div class="imagen-lateral-sec3">
+                            <span><img src="cima.jpg" alt="Imagen 1"></span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-azul tarjeta-sec3-con-imagen">
+                        <div class="texto-sec3">
+                            <h3>Universidad Católica San Pablo (UCSP) – Arequipa</h3>
+                            <p>Ciencias de la Computación | Primer ciclo | 2026 – actualidad</p>
+                        </div>
+                        <div class="imagen-lateral-sec3">
+                            <span><img src="propiedad.jpg" alt="Imagen 2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <h2>Mis cursos y Profesores</h2>
+            <p class="subtitulo-seccion">En esta sección aparecerán los cursos que llevo en el semestre y sus profesores.</p>
+
+            <div class="cuadro-triple-entrada">
+                <div class="encabezado-tabla">
+                    <span>Curso</span>
+                    <span>Profesores</span>
+                    <span>Información</span>
+                </div>
+
+                <div class="fila-lista">
+                    <span class="info-izquierda">1. Introducción a Computación</span>
+                    <span class="info-central">Ernesto Cuadros Vargas</span>
+                    <a href="https://www.linkedin.com/in/ecuadrosv/" target="_blank" rel="noopener noreferrer" class="link-derecha">Visitar →</a>
+                </div>
+
+                <div class="fila-lista">
+                    <span class="info-izquierda">2. Fundamentos Matemáticos para Computación</span>
+                    <span class="info-central">Sabrina Suárez Calcina</span>
+                    <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=17414" target="_blank" rel="noopener noreferrer" class="link-derecha">Visitar →</a>
+                </div>
+
+                <div class="fila-lista">
+                    <span class="info-izquierda">3. Fundamentos de Programación</span>
+                    <span class="info-central">Yessenia Deysi Yari Ramos</span>
+                    <a href="https://www.linkedin.com/in/yessenia-yari-b4778139/" target="_blank" rel="noopener noreferrer" class="link-derecha">Visitar →</a>
+                </div>
+
+                <div class="fila-lista">
+                    <span class="info-izquierda">4. Lógica</span>
+                    <span class="info-central">Loayza Cruz Kristel Gisselle</span>
+                    <a href="https://www.linkedin.com/in/kristel-gisselle-loayza-cruz-abb3b039b/" target="_blank" rel="noopener noreferrer" class="link-derecha">Visitar →</a>
+                </div>
+
+                <div class="fila-lista">
+                    <span class="info-izquierda">5. Introducción a la Vida Universitaria</span>
+                    <span class="info-central">Ponce Reinoso Gabriela</span>
+                    <a href="https://www.linkedin.com/in/gabriela-ponce-reinoso-885922127/" target="_blank" rel="noopener noreferrer" class="link-derecha">Visitar →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo">
+            <h2>Compañeros con los que estudio y sus páginas</h2>
+
+            <div class="grid-diez-cuadros">
+                <div class="cuadro-item">
+                    <h3>Eduardo Isaac Rojas Juarez</h3>
+                    <div class="circulo-letra">Ed</div>
+                    <a href="https://eduardoisaacrojasjuarez.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Emely Mirella Anccari Lopez</h3>
+                    <div class="circulo-letra">Em</div>
+                    <a href="https://emelyanccari-ops.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Dominick Ray Apfata Llaique</h3>
+                    <div class="circulo-letra">D</div>
+                    <a href="https://dominickapfata-sudo.github.io/dominickrayapfatallaique.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Rafael Chirinos</h3>
+                    <div class="circulo-letra">R</div>
+                    <a href="https://rafaelchirinosaspauza.github.io/sitio-web-sobre-mi-/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Zafiro Shantal Quispe Alache</h3>
+                    <div class="circulo-letra">Z</div>
+                    <a href="https://zafiroquispe-wq.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <!-- Fila inferior (5 cuadrados) -->
+                <div class="cuadro-item">
+                    <h3>Carlos Fabian Huarachi Humora</h3>
+                    <div class="circulo-letra">C</div>
+                    <a href="https://carlosfabianhuarachihumora.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Franco Abdiel Salinas Rondon</h3>
+                    <div class="circulo-letra">F</div>
+                    <a href="https://francoabdielsalinasrondon.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Edgar Sebastian Calle Torres</h3>
+                    <div class="circulo-letra">E</div>
+                    <a href="https://polarberto.github.io/EDGAR-SEBASTIAN-CALLE-TORRES/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Nayeli Yadira Ordoñez Asto</h3>
+                    <div class="circulo-letra">N</div>
+                    <a href="https://nayeliordonez.github.io/Nayeli-Ordonez-Asto/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+
+                <div class="cuadro-item">
+                    <h3>Alexia Alisson Cayo Ccasa</h3>
+                    <div class="circulo-letra">A</div>
+                    <a href="https://alexiacayo19.github.io/" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <div class="grid-contacto">
+                <div class="fila-superior-contacto">
+                    <a href="https://www.linkedin.com/in/diego-alessandro-garcia-aguilar-273022452/" target="_blank" rel="noopener noreferrer" class="tarjeta-azul recuadro-link">
+                        <div class="cabecera-subtitulo-icono">
+                            <span class="icono-subtitulo"><img src="eeee.png" alt="Icono 1"></span>
+                            <h3>Linkedin</h3>
+                        </div>
+                        <p>https://www.linkedin.com/in/diego-alessandro-garcia-aguilar-273022452/.</p>
+                    </a>
+                    <a href="https://github.com/diegogarciaaguilar-ui" target="_blank" rel="noopener noreferrer" class="tarjeta-azul recuadro-link">
+                        <div class="cabecera-subtitulo-icono">
+                            <span class="icono-subtitulo"><img src="giy.png" alt="Icono 2"></span>
+                            <h3>Github</h3>
+                        </div>
+                        <p>https://github.com/diegogarciaaguilar-ui.</p>
+                    </a>
+                </div>
+
+                <div class="tarjeta-azul bloque-inferior-contacto">
+                    <div class="cabecera-subtitulo-icono">
+                        <span class="icono-subtitulo"><img src="egmail.png" alt="Icono 3"></span>
+                        <h3>Información Directa</h3>
+                    </div>
+                    <p>Correo Electrónico: diego.garcia.aguilar@ucsp.edu.pe</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        © 2026 Diego Alessandro Garcia Aguilar - Todos los derechos reservados
+    </footer>
+</body>
+</html>
